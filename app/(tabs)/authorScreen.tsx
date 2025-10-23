@@ -1,30 +1,30 @@
-import React, { useState } from "react";
 import { Image } from "expo-image";
+import React, { useState } from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 
+import Autor from "@/components/author/author";
+import AuthorModal from "@/components/modals/authorModal";
 import ParallaxScrollView from "@/components/parallax-scroll-view";
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
-import AutorModal from "@/components/modals/autorModal";
-import Autor from "@/components/autor/autor";
-import { Iautor } from "@/Interfaces/Iautor";
+import { IAuthor } from "@/Interfaces/Iauthor";
 
-export default function AutorScreen() {
+export default function AuthorScreen() {
     const [modalVisible, setModalVisible] = useState(false);
-    const [autor, setAutor] = useState<Iautor[]>([{
-    id: 1,
-        nome: " George R.R. Martin",
-        bio: "George R.R. Martin is the globally bestselling author of many fine novels, including A Game of Thrones.",
+    const [author, setAuthor] = useState<IAuthor[]>([{
+        id: 1,
+        nome: "George R.R. Martin",
+        bio: "George R. R. Martin é um autor, roteirista e produtor de televisão americano. É mundialmente famoso pela série de livros de fantasia épica 'Game of Thrones'.",
     }]);
 
 
-    function handleAddAutor(nome: string, bio: string) {
-        const newAutor = {
+    function handleAddAuthor(nome: string, bio: string) {
+        const newAuthor = {
             id: Math.random() * 1000,
             nome,
             bio
         };
-        setAutor([...autor, newAutor]);
+        setAuthor([...author, newAuthor]);
         setModalVisible(false);
     }
 
@@ -33,13 +33,13 @@ export default function AutorScreen() {
             headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
             headerImage={
                 <Image
-                    source={require("@/assets/images/livros.jpg")}
+                    source={require("@/assets/images/livros.png")}
                     style={styles.reactLogo}
                 />
             }
         >
             <ThemedView style={styles.titleContainer}>
-                <ThemedText type="title">Autores </ThemedText>
+                <ThemedText type="title">Autores 📝 </ThemedText> 
             </ThemedView>
 
             <ThemedView style={styles.stepContainer}>
@@ -50,17 +50,17 @@ export default function AutorScreen() {
                 <ThemedText style={styles.addButton}>+</ThemedText>
             </TouchableOpacity>
 
-            <AutorModal
+            <AuthorModal
                 visible={modalVisible}
-                onAdd={handleAddAutor} 
+                onAdd={handleAddAuthor}
                 onClose={() => setModalVisible(false)}
             />
 
-            {autor.map((autor) => (
+            {author.map((author) => (
                 <Autor
-                    key={autor.id}
-                    nome={autor.nome}
-                    bio={autor.bio}
+                    key={author.id}
+                    nome={author.nome}
+                    bio={author.bio}
                 />
             ))}
         </ParallaxScrollView>
@@ -85,11 +85,11 @@ const styles = StyleSheet.create({
     addButton: {
         backgroundColor: "#1D3D47",
         color: "#FFFFFF",
-        fontSize: 32,
+        fontSize: 30,
         textAlign: "center",
         borderRadius: 20,
+        marginBottom: 10,
         padding: 5,
-        marginTop: 20,
-
+        paddingTop: 5,
     },
 });

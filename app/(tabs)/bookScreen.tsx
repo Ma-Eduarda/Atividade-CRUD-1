@@ -41,7 +41,7 @@ export default function BookScreen() {
             headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
             headerImage={
                 <Image
-                    source={require("@/assets/images/livros.jpg")}
+                    source={require("@/assets/images/livros.png")}
                     style={styles.reactLogo}
                 />
             }
@@ -94,11 +94,11 @@ const styles = StyleSheet.create({
     addButton: {
         backgroundColor: "#1D3D47",
         color: "#FFFFFF",
-        fontSize: 32,
+        fontSize: 30,
         textAlign: "center",
         borderRadius: 20,
-        padding: 5,
-        marginTop: 20,
-
+        marginBottom: 10,
+        padding: 10,
+        paddingTop: 5,
     },
 });

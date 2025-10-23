@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Modal, StyleSheet, TouchableOpacity, View, TextInput, Text } from "react-native";
 
-export type AutorModalProps = {
+export type AuthorModalProps = {
     visible: boolean;
     onAdd: (nome: string, bio: string) => void;
     onClose: () => void;
 };
 
-export default function AutorModal({ visible, onClose, onAdd }: AutorModalProps) {
+export default function AuthorModal({ visible, onClose, onAdd }: AuthorModalProps) {
     const [nome, setNome] = useState("");
     const [bio, setBio] = useState("");
 

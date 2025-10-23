@@ -8,9 +8,9 @@ export type AutorProps = {
 
 export default function Autor({ nome, bio}: AutorProps) {
     return (
-         <View style={styles.container}>
-            <Text style={styles.nome}>{nome}</Text>
-            <Text style={styles.bio}>{bio}</Text>
+        <View style={styles.container}>
+            <Text style={styles.title}>{nome}</Text>
+            <Text style={styles.description}>{bio}</Text>
         </View>
     );
 }
